@@ -1,4 +1,6 @@
+#include "account.h"
 #include <iostream>
+
 
 using namespace std;
 
@@ -18,13 +20,17 @@ int main() {
 		//Prompting User
 		string userInput;
 		cin >> userInput;
+		Account* account = new Account();
 
 		if(userInput ==  "1") {
-			cout << "User prompted 1, unimplemented. Exiting" << endl;
-			exit(-1);
-
-			//sets currentUser to login user		
-			//currentUser = login();
+			//calls login function	
+			bool status = Account->login();
+			if)(!status) {
+				cout << "The username or password you've entered is incorrect" << endl;
+			}
+			else {
+				exitCall = 1;
+			}
 		}
 		else if(userInput == "2") {
 			cout << "User prompted 2, unimplemented. Exiting" << endl;
