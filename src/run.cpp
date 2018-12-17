@@ -24,8 +24,8 @@ int main() {
 
 		if(userInput ==  "1") {
 			//calls login function	
-			bool status = Account->login();
-			if)(!status) {
+			bool status = account->login();
+			if(!status) {
 				cout << "The username or password you've entered is incorrect" << endl;
 			}
 			else {

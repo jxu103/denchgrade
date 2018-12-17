@@ -1,6 +1,11 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 class Account {
     private:
         string username;
@@ -13,11 +18,11 @@ class Account {
             bool status;
 
             cout << "Please enter your username, Press Enter when finished: ";
-            cin << this->username;
+            cin >> this->username;
             cout << endl;
 
             cout << "Please enter your password, Press Enter when finished: ";
-            cin << this->password
+            cin >> this->password;
             cout << endl;
 
             status = checkUsername();
@@ -27,11 +32,11 @@ class Account {
         }
 
         bool checkUsername() {
-
+            return false;
         }
 
         bool checkPassword() {
-
+            return false;
         }
     
 };
