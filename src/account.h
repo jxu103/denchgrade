@@ -20,8 +20,8 @@ class Account {
             cin << this->password
             cout << endl;
 
-            status = checkUsername;
-            status = checkPassword;
+            status = checkUsername();
+            status = checkPassword();
 
             return status;
         }
