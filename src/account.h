@@ -2,6 +2,7 @@
 #define ACCOUNT_H
 
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
@@ -15,8 +16,6 @@ class Account {
         Account() {};
 
         bool login() {
-            bool status;
-
             cout << "Please enter your username, Press Enter when finished: ";
             cin >> this->username;
             cout << endl;
@@ -25,18 +24,11 @@ class Account {
             cin >> this->password;
             cout << endl;
 
-            status = checkUsername();
-            status = checkPassword();
-
-            return status;
+            return checkLogin();
         }
 
-        bool checkUsername() {
-            return false;
-        }
-
-        bool checkPassword() {
-            return false;
+        bool checkLogin() {
+            ifstream ifs('./accounts');
         }
     
 };
