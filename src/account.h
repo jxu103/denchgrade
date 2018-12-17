@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 
 using namespace std;
@@ -28,7 +29,27 @@ class Account {
         }
 
         bool checkLogin() {
-            ifstream ifs('./accounts');
+		    // Opening file stream for reading
+			ifstream accts("src/accounts");
+			string line;
+			
+			if (accts) {
+                bool correctLogin = false;
+				while (getline(accts, line)) {
+					// Parsing each line with whitespace delim
+					stringstream infos(line);
+					string token;
+
+                    // Get username and compare
+					getline(infos, token, ' ');
+					if (this->username.compare(token) == 0) correctLogin = true;
+
+                    // Get password and compare
+					getline(infos, token, '\r');
+					if (this->password.compare(token) == 0 && correctLogin) return true;
+				}
+			} else cout << "Account file could not be opened" << endl;
+            return false;
         }
     
 };

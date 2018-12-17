@@ -1,6 +1,4 @@
 #include "account.h"
-#include <iostream>
-
 
 using namespace std;
 
@@ -29,13 +27,13 @@ int main() {
 				cout << "The username or password you've entered is incorrect" << endl;
 			}
 			else {
+				cout << "Correct login!" << endl;
 				exitCall = 1;
 			}
 		}
 		else if(userInput == "2") {
 			cout << "User prompted 2, unimplemented. Exiting" << endl;
 			exit(-1);
-
 			//createAccount();
 		}
 		else if(userInput == "3") {
