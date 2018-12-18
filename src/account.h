@@ -31,6 +31,7 @@ class Account {
         }
 
         void signup() {
+            
             string username;
             string password;
             bool confirmed=false;
@@ -39,7 +40,8 @@ class Account {
             cout << "\t---Sign Up---" << endl << endl;
 
             cout << "Please enter a desired username, Press Enter when finished: ";
-            cin >> username;
+            cin.ignore();
+            getline(cin,username);
             cout << endl;
 
             // Password confirmation
