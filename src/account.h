@@ -17,6 +17,8 @@ class Account {
         Account() {};
 
         bool login() {
+            system("clear");
+            cout << "\t---Login---" << endl << endl;
             cout << "Please enter your username, Press Enter when finished: ";
             cin >> this->username;
             cout << endl;
@@ -33,17 +35,24 @@ class Account {
             string password;
             bool confirmed=false;
 
+            system("clear");
+            cout << "\t---Sign Up---" << endl << endl;
+
             cout << "Please enter a desired username, Press Enter when finished: ";
             cin >> username;
+            cout << endl;
 
             // Password confirmation
             while (!confirmed) {
                 cout << "Please enter a desired password, Press Enter when finished: ";
                 cin >> password;
+                cout << endl;
 
                 string pwConfirm;
                 cout << "Enter your password again to confirm, Press Enter when finished: ";
                 cin >> pwConfirm;
+                cout << endl;
+
                 if (pwConfirm.compare(password) == 0) confirmed = true;
                 else cout << "Passwords does not match! Please try again." << endl;
             }
@@ -75,7 +84,7 @@ class Account {
 					getline(infos, token, '\r');
 					if (this->password.compare(token) == 0 && correctLogin) return true;
 				}
-			} else cout << "Account file could not be opened" << endl;
+			} else {cout << "Account file could not be opened" << endl; exit(-1);}
             return false;
         }
     

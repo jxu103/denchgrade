@@ -6,6 +6,8 @@ int main() {
 	bool userLogin = 0;
 	bool exitCall = 0;
 
+	system("clear");
+
 	cout << "Welcome to Dench Grading System..." << endl;
 		
 	while(exitCall == 0) {
@@ -35,7 +37,7 @@ int main() {
 		else if(userInput == "2") {
 			account->signup();
 			// Unimplemented
-			cout << "Sign up successful! Unimplemented beyond this point"
+			cout << "Sign up successful! Unimplemented beyond this point" <<endl;
 			exitCall = 1;
 		}
 		else if(userInput == "3") {
