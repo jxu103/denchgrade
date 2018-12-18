@@ -37,12 +37,26 @@ class Account {
             system("clear");
             cout << "\t---Sign Up---" << endl << endl;
 
+            while (!confirmed) {
+                cout << "Please enter a desired username, Press Enter when finished: ";
+                cin.ignore();
+                getline(cin,username);
+                // Checks if spaces are present
+                if(username.find(" ") == string::npos) {
+                    usernameConfirm = true;
+                }
+                else {
+                    cout << "Spaces are not allowed" << endl;
+                    usernameConfirm = false;
+                }
+            }
+
             
             while(!usernameConfirm) {
                 cout << "Please enter a desired username, Press Enter when finished: ";
                 cin.ignore();
                 getline(cin,username);
-                //checks if spaces are present
+                // Checks if spaces are present
                 if(username.find(" ") == string::npos) {
                     usernameConfirm = true;
                 }
@@ -75,6 +89,25 @@ class Account {
 
             // Appending username and password to accounts file
             accts << username << " " << password << "\r";
+        }
+
+        bool userExists(string user) {
+            // Opening file stream for reading
+			ifstream accts("src/accounts");
+			string line;
+
+            while (getline(accts, line, '\r')) {
+                // Parsing each line with whitespace delim
+                stringstream infos(line);
+                string token;
+
+                // Get username and compare
+                getline(infos, token, ' ');
+                cout << "Username: " << token << endl;
+                if (user.compare(token) == 0) return true;
+            }
+            cout << "over" << endl;
+            return false;
         }
 
         bool checkLogin() {
