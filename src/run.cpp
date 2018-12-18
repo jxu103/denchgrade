@@ -32,9 +32,7 @@ int main() {
 			}
 		}
 		else if(userInput == "2") {
-			cout << "User prompted 2, unimplemented. Exiting" << endl;
-			exit(-1);
-			//createAccount();
+			account->signup();
 		}
 		else if(userInput == "3") {
 			cout <<"Thanking for using Dench Grading System" << endl;
