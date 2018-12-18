@@ -31,17 +31,28 @@ class Account {
         }
 
         void signup() {
-            
-            string username;
-            string password;
-            bool confirmed=false;
+            bool confirmed = false;
+            bool usernameConfirm = false;
 
             system("clear");
             cout << "\t---Sign Up---" << endl << endl;
 
-            cout << "Please enter a desired username, Press Enter when finished: ";
-            cin.ignore();
-            getline(cin,username);
+            
+            while(!usernameConfirm) {
+                cout << "Please enter a desired username, Press Enter when finished: ";
+                cin.ignore();
+                getline(cin,username);
+                //checks if spaces are present
+                if(username.find(" ") == string::npos) {
+                    usernameConfirm = true;
+                }
+                else {
+                    cout << "Spaces are not allowed" << endl;
+                    usernameConfirm = false;
+                }
+            }
+            
+
             cout << endl;
 
             // Password confirmation
@@ -50,14 +61,10 @@ class Account {
                 getline(cin,password);
                 cout << endl;
 
-                cout << "PASSWORd1 : " << password << endl;
-
                 string pwConfirm;
                 cout << "Enter your password again to confirm, Press Enter when finished: ";
                 getline(cin,pwConfirm);
                 cout << endl;
-
-                cout << "PASSWORd2 : " << pwConfirm << endl;
 
                 if (pwConfirm.compare(password) == 0) confirmed = true;
                 else cout << "Passwords does not match! Please try again." << endl;
