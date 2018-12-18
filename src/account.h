@@ -36,34 +36,16 @@ class Account {
 
             system("clear");
             cout << "\t---Sign Up---" << endl << endl;
-
-            while (!confirmed) {
-                cout << "Please enter a desired username, Press Enter when finished: ";
-                cin.ignore();
-                getline(cin,username);
-                // Checks if spaces are present
-                if(username.find(" ") == string::npos) {
-                    usernameConfirm = true;
-                }
-                else {
-                    cout << "Spaces are not allowed" << endl;
-                    usernameConfirm = false;
-                }
-            }
-
             
             while(!usernameConfirm) {
                 cout << "Please enter a desired username, Press Enter when finished: ";
                 cin.ignore();
                 getline(cin,username);
+
                 // Checks if spaces are present
-                if(username.find(" ") == string::npos) {
-                    usernameConfirm = true;
-                }
-                else {
-                    cout << "Spaces are not allowed" << endl;
-                    usernameConfirm = false;
-                }
+                if(username.find(" ") != string::npos) cout << "Spaces are not allowed" << endl;
+                else if (userExists(username)) cout << "Username already in use" << endl;
+                else usernameConfirm = true;
             }
             
 
@@ -103,7 +85,6 @@ class Account {
 
                 // Get username and compare
                 getline(infos, token, ' ');
-                cout << "Username: " << token << endl;
                 if (user.compare(token) == 0) return true;
             }
             cout << "over" << endl;
@@ -117,7 +98,7 @@ class Account {
 			
 			if (accts) {
                 bool correctLogin = false;
-				while (getline(accts, line)) {
+				while (getline(accts, line, '\r')) {
 					// Parsing each line with whitespace delim
 					stringstream infos(line);
 					string token;
@@ -125,6 +106,7 @@ class Account {
                     // Get username and compare
 					getline(infos, token, ' ');
 					if (this->username.compare(token) == 0) correctLogin = true;
+
 
                     // Get password and compare
 					getline(infos, token, '\r');
