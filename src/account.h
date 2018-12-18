@@ -36,6 +36,7 @@ class Account {
             cout << "Please enter a desired username, Press Enter when finished: ";
             cin >> username;
 
+            // Password confirmation
             while (!confirmed) {
                 cout << "Please enter a desired password, Press Enter when finished: ";
                 cin >> password;
@@ -47,8 +48,10 @@ class Account {
                 else cout << "Passwords does not match! Please try again." << endl;
             }
 
+            // Opening file stream for writing
             ofstream accts("src/accounts", ios_base::app);
 
+            // Appending username and password to accounts file
             accts << username << " " << password << "\r";
         }
 
