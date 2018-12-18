@@ -30,6 +30,10 @@ class Account {
             return checkLogin();
         }
 
+        /*
+            Prompts the user for a desired username and password to be added to the database.
+            Adds to database if username is not already in use.
+        */
         void signup() {
             bool confirmed = false;
             bool usernameConfirm = false;
@@ -73,6 +77,11 @@ class Account {
             accts << username << " " << password << "\r";
         }
 
+
+        /*
+            Scans the given username in the database of created accounts.
+            Returns true if found and false otherwise
+        */
         bool userExists(string user) {
             // Opening file stream for reading
 			ifstream accts("src/accounts");
@@ -91,6 +100,10 @@ class Account {
             return false;
         }
 
+        /*
+            Checks if the current user's username and password matches any login data in the database.
+            Returns true if found and false otherwise
+        */
         bool checkLogin() {
 		    // Opening file stream for reading
 			ifstream accts("src/accounts");
