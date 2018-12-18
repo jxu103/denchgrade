@@ -45,12 +45,12 @@ class Account {
             // Password confirmation
             while (!confirmed) {
                 cout << "Please enter a desired password, Press Enter when finished: ";
-                cin >> password;
+                getline(cin,password);
                 cout << endl;
 
                 string pwConfirm;
                 cout << "Enter your password again to confirm, Press Enter when finished: ";
-                cin >> pwConfirm;
+                getline(cin,pwConfirm);
                 cout << endl;
 
                 if (pwConfirm.compare(password) == 0) confirmed = true;
