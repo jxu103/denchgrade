@@ -50,10 +50,14 @@ class Account {
                 getline(cin,password);
                 cout << endl;
 
+                cout << "PASSWORd1 : " << password << endl;
+
                 string pwConfirm;
                 cout << "Enter your password again to confirm, Press Enter when finished: ";
                 getline(cin,pwConfirm);
                 cout << endl;
+
+                cout << "PASSWORd2 : " << pwConfirm << endl;
 
                 if (pwConfirm.compare(password) == 0) confirmed = true;
                 else cout << "Passwords does not match! Please try again." << endl;
