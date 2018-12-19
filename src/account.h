@@ -128,6 +128,10 @@ class Account {
 			} else {cout << "Account file could not be opened" << endl; exit(-1);}
             return false;
         }
+
+        string getUsername() {
+            return this->username;
+        }
     
 };
 
