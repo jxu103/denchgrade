@@ -3,13 +3,14 @@
 using namespace std;
 
 int main() {
+	Account* account = new Account();	
 	bool userLogin = 0;
 	bool exitCall = 0;
 
 	system("clear");
 
 	cout << "Welcome to Dench Grading System..." << endl;
-		
+	
 	while(exitCall == 0) {
 		cout << "Please choose an option from the menu" << endl;
 		cout << "1. Login" << endl;
@@ -19,7 +20,7 @@ int main() {
 		//Prompting User
 		string userInput;
 		cin >> userInput;
-		Account* account = new Account();
+		
 
 		if(userInput == "1") {
 			//calls login function	
@@ -31,14 +32,15 @@ int main() {
 			else {
 				// Unimplemented
 				cout << "Correct login!" << endl;
+				exitCall = 1;
 			}
-			exitCall = 1;
+			
 		}
 		else if(userInput == "2") {
 			account->signup();
+			cout << "Signup successful!" << endl;
 			// Unimplemented
-			cout << "Sign up successful! Unimplemented beyond this point" <<endl;
-			exitCall = 1;
+			exitCall = 0;
 		}
 		else if(userInput == "3") {
 			cout <<"Thanking for using Dench Grading System" << endl;
@@ -48,6 +50,8 @@ int main() {
 			cout <<"Invalid selection" << endl;
 		}
 	}
+
+	cout << "Welcome back: " << account->getUsername() << "!" << endl;
 
 return 0;
 }

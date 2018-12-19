@@ -96,7 +96,6 @@ class Account {
                 getline(infos, token, ' ');
                 if (user.compare(token) == 0) return true;
             }
-            cout << "over" << endl;
             return false;
         }
 
