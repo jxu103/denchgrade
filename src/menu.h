@@ -8,11 +8,21 @@
 using namespace std;
 
 class Menu {
-    public:
-        Menu(){}
+    private:
+        Account* account;
 
-        void login() {
-            Account* account = new Account();	
+    public:
+        bool run() {
+            bool exitcall;
+
+            this->loginMenu();
+            exitcall = this->mainMenu();
+
+            return exitcall;
+        }
+
+        void loginMenu() {
+            this->account = new Account();	
 	        bool userLogin = 0;
 	        bool exitCall = 0;
 
@@ -50,13 +60,18 @@ class Menu {
                 }
                 else if(userInput == "3") {
                     cout <<"Thanking for using Dench Grading System" << endl;
-                    exitCall = 1;
+                    exit(-1);
                 }
                 else {
                     cout <<"Invalid selection" << endl;
                 }
             }
         }
+
+        bool mainMenu() {
+                return 1;
+        }
+
 
 
 };
